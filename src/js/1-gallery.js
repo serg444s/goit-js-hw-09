@@ -85,16 +85,9 @@ function makeGalleryItem(arr) {
 }
 
 let gallery = new SimpleLightbox('.gallery a');
+
 gallery.on('show.simplelightbox', function () {
-  sourceAttr;
-  overlay;
-  overlayOpacity;
-  nav;
-  navText;
-  captionType = 'Attr';
-  captionsData = alt;
+  captionsData = 'alt';
   captionPosition = 'bottom';
   captionDelay = 250;
-  close;
-  closeText = 'X';
 });
