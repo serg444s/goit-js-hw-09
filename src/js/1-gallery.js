@@ -84,10 +84,8 @@ function makeGalleryItem(arr) {
   galleryList.innerHTML = result;
 }
 
-let gallery = new SimpleLightbox('.gallery a');
-
-gallery.on('show.simplelightbox', function () {
-  captionsData = 'alt';
-  captionPosition = 'bottom';
-  captionDelay = 250;
+let gallery = new SimpleLightbox('.gallery a', {
+  captionsData: 'alt',
+  captionPosition: 'bottom',
+  captionDelay: 250,
 });
