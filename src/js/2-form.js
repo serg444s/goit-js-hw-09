@@ -1,21 +1,23 @@
 const userForm = document.querySelector('.feedback-form');
-const localStorageKey = 'feedback-form-stat';
+const localStorageKey = 'feedback-form-state';
 const userTextarea = userForm.elements.message;
 const userEmail = userForm.elements.email;
 
 userForm.addEventListener('input', onFormInput);
 
 function onFormInput(event) {
-  const result = {
+  const userFormData = {
     email: userEmail.value.trim(),
     message: userTextarea.value.trim(),
   };
-  localStorage.setItem(localStorageKey, JSON.stringify(result));
+  localStorage.setItem(localStorageKey, JSON.stringify(userFormData));
 }
 
-const parselResult = JSON.parse(localStorage.getItem(localStorageKey));
-userEmail.value = parselResult.email ?? '';
-userTextarea.value = parselResult.message ?? '';
+const userFormDataParse = JSON.parse(localStorage.getItem(localStorageKey));
+if (userFormDataParse && userFormDataParse.email && userFormDataParse.message) {
+  userEmail.value = userFormDataParse.email ?? '';
+  userTextarea.value = userFormDataParse.message ?? '';
+}
 
 userForm.addEventListener('submit', onFormSubmit);
 
