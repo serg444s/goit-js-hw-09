@@ -14,7 +14,7 @@ function onFormInput(event) {
 }
 
 const userFormDataParse = JSON.parse(localStorage.getItem(localStorageKey));
-if (userFormDataParse && userFormDataParse.email && userFormDataParse.message) {
+if (userFormDataParse) {
   userEmail.value = userFormDataParse.email ?? '';
   userTextarea.value = userFormDataParse.message ?? '';
 }
